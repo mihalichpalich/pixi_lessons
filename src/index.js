@@ -1,31 +1,40 @@
 import * as PIXI from 'pixi.js';
 
 import './style/main.css';
-import logo from './images/smile.png';
+// import catImage from './images/cat.png';
+import catSprite from './images/cat_sprite.png';
 
 const app = new PIXI.Application({
-  width: 640,
-  height: 640,
+  width: 256,
+  height: 256,
   backgroundColor: 0x1099bb,
 });
 
 document.body.appendChild(app.view);
 
-const container = new PIXI.Container();
-app.stage.addChild(container);
+const loader = new PIXI.Loader();
+const Sprite = PIXI.Sprite;
 
-const texture = PIXI.Texture.from(logo);
+const setup = () => {
+  // const cat = new Sprite(loader.resources[catImage].texture);
+  // const catTwo = new Sprite(loader.resources[catImage].texture);
+  // cat.x = 100;
+  // cat.y = 100;
+  // cat.scale.set(1);
+  // cat.anchor.set(0.5);
+  // catTwo.x = 50;
+  // catTwo.y = 50;
+  // app.stage.addChild(cat);
+  // app.stage.addChild(catTwo);
+  // app.ticker.add((delta) => {
+  //   cat.rotation -= 0.01 * delta;
+  // });
+  const texture = PIXI.utils.TextureCache[catSprite];
+  const rectangle = new PIXI.Rectangle(0, 0, 100, 110);
+  texture.frame = rectangle;
+  const target = new Sprite(texture);
+  app.stage.addChild(target);
+};
 
-const smile = new PIXI.Sprite(texture);
-smile.anchor.set(0.5);
-container.addChild(smile);
+loader.add(catSprite).load(setup);
 
-container.x = app.screen.width / 2;
-container.y = app.screen.height / 2;
-
-container.pivot.x = container.width / 2;
-container.pivot.y = container.height / 2;
-
-app.ticker.add((delta) => {
-  container.rotation += 0.01 * delta
-});
