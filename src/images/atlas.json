@@ -1,0 +1,79 @@
+{
+	"frames": {
+		"black-cat-1.png": {
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 100
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 100
+			},
+			"sourceSize": {
+				"w": 100,
+				"h": 100
+			}
+		},
+		"black-cat-2.png": {
+			"frame": {
+				"x": 100,
+				"y": 0,
+				"w": 100,
+				"h": 100
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 100
+			},
+			"sourceSize": {
+				"w": 100,
+				"h": 100
+			}
+		},
+		"black-cat-3.png": {
+			"frame": {
+				"x": 200,
+				"y": 0,
+				"w": 100,
+				"h": 100
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 100
+			},
+			"sourceSize": {
+				"w": 100,
+				"h": 100
+			}
+		}
+	},
+	"animations": {
+		"black-cat": ["black-cat-1.png", "black-cat-2.png", "black-cat-3.png"]
+	},
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "atlas.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 300,
+			"h": 100
+		},
+		"scale": "1",
+		"smartupdate": "$TexturePacker:SmartUpdate:121974dbc63e739c6b9ad4ebd5abe9a0:ce7246ce471baebc2dae26eb292819ab:cbce6b53f0f49e0bf15173c25c41f876$"
+	}
+}

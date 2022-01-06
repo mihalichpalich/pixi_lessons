@@ -2,7 +2,8 @@ import * as PIXI from 'pixi.js';
 
 import './style/main.css';
 // import catImage from './images/cat.png';
-import catSprite from './images/cat_sprite.png';
+// import catSprite from './images/cat_sprite.png';
+// import catAtlas from './images/atlas.json';
 
 const app = new PIXI.Application({
   width: 256,
@@ -13,7 +14,7 @@ const app = new PIXI.Application({
 document.body.appendChild(app.view);
 
 const loader = new PIXI.Loader();
-const Sprite = PIXI.Sprite;
+// const Sprite = PIXI.Sprite;
 
 const setup = () => {
   // const cat = new Sprite(loader.resources[catImage].texture);
@@ -29,12 +30,15 @@ const setup = () => {
   // app.ticker.add((delta) => {
   //   cat.rotation -= 0.01 * delta;
   // });
-  const texture = PIXI.utils.TextureCache[catSprite];
-  const rectangle = new PIXI.Rectangle(0, 0, 100, 110);
-  texture.frame = rectangle;
-  const target = new Sprite(texture);
-  app.stage.addChild(target);
+  // const texture = PIXI.utils.TextureCache[catSprite];
+  // const rectangle = new PIXI.Rectangle(0, 0, 100, 110);
+  // texture.frame = rectangle;
+  // const target = new Sprite(texture);
+  // app.stage.addChild(target);
+  let id = loader.resources['./images/atlas.json'].textures;
+  let sprite = new PIXI.Sprite(id["black-cat-1.png"]);
+  app.stage.addChild(sprite);
 };
 
-loader.add(catSprite).load(setup);
+loader.add("./images/atlas.json").load(setup);
 
