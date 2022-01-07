@@ -1,4 +1,4 @@
-import {Application, Graphics} from 'pixi.js';
+import {Application, TextStyle, Text} from 'pixi.js';
 
 import './style/main.css';
 // import catImage from './images/cat.png';
@@ -13,36 +13,22 @@ const app = new Application({
 
 document.body.appendChild(app.view);
 
-let rectangle = new Graphics();
-rectangle.lineStyle(4, 0xff3300, 1);
-rectangle.beginFill(0x66ccff);
-rectangle.drawRect(0, 0, 64, 64);
-rectangle.endFill();
-rectangle.x = 170;
-rectangle.y = 170;
-app.stage.addChild(rectangle);
+let style = new TextStyle({
+  fontFamily: 'Arial',
+  fontSize: 36,
+  fill: "white"
+});
 
-let ellipse = new Graphics();
-ellipse.beginFill(0xffff00);
-ellipse.drawEllipse(0, 0, 50, 20);
-ellipse.endFill();
-ellipse.x = 180;
-ellipse.y = 130;
-app.stage.addChild(ellipse);
+let message = new Text("Hello", style);
 
-let roundBox = new Graphics();
-roundBox.lineStyle(4, 0x99ccff, 1);
-roundBox.beginFill(0xff9933);
-roundBox.drawRoundedRect(0, 0, 84, 36, 10);
-roundBox.endFill();
-roundBox.x = 48;
-roundBox.y = 190;
-app.stage.addChild(roundBox);
+app.stage.addChild(message);
 
-let line = new Graphics();
-line.lineStyle(4, 0xffffff, 1);
-line.moveTo(0, 0);
-line.lineTo(80, 50);
-line.x = 32;
-line.y = 32;
-app.stage.addChild(line);
+let value = 0;
+
+message.x = 100;
+message.y = 100;
+
+app.ticker.add(() => {
+  value++;
+  message.text = value;
+});
